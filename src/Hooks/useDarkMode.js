@@ -1,14 +1,15 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 import { useLocalStorage } from "./useLocalStorage";
 
 export const useDarkMode = (toggleValue) => {
-    const [darkToggle, SetDarkToggle] = useLocalStorage(toggleValue);
-    useEffect(() =>
-    darkToggle ? document.querySelector("dark-mode"): "")
-
     
+  const [darkToggle, SetDarkToggle] = useLocalStorage(toggleValue);
 
-    return[darkToggle, SetDarkToggle];
+  useEffect(() => {
+    darkToggle
+      ? (document.body.className = "dark-mode")
+      : (document.body.className = null);
+  });
 
-}
-
+  return [darkToggle, SetDarkToggle];
+};
