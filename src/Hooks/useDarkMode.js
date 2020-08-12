@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useLocalStorage } from "./useLocalStorage";
 
 export const useDarkMode = (toggleValue) => {
@@ -10,16 +9,14 @@ export const useDarkMode = (toggleValue) => {
   //     : (document.body.className = null);
   // });
 
-  useEffect(
-    () => {
-      const className = "dark-mode";
-      const element = window.document.body;
-      darkToggle
-        ? element.classList.add(className)
-        : element.classList.remove(className);
-    },
-    [darkToggle] // Only re-call effect when value changes
-  );
+  //
+
+  //no need to use useEffect
+  const className = "dark-mode";
+  const element = window.document.body;
+  darkToggle
+    ? element.classList.add(className)
+    : element.classList.remove(className);
 
   return [darkToggle, SetDarkToggle];
 };
