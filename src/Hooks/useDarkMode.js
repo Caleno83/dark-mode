@@ -14,11 +14,9 @@ export const useDarkMode = (toggleValue) => {
     () => {
       const className = "dark-mode";
       const element = window.document.body;
-      if (darkToggle) {
-        element.classList.add(className);
-      } else {
-        element.classList.remove(className);
-      }
+      darkToggle
+        ? element.classList.add(className)
+        : element.classList.remove(className);
     },
     [darkToggle] // Only re-call effect when value changes
   );
